@@ -19,7 +19,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#">Beranda</a>
+                        <a class="nav-link text-light" href="{{ '/home/beranda' }}">Beranda</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown"
@@ -27,15 +27,15 @@
                             Tentang
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Profil</a></li>
-                            <li><a class="dropdown-item" href="#">Kepengurusan</a></li>
+                            <li><a class="dropdown-item" href="{{ '/home/profil' }}">Profil</a></li>
+                            <li><a class="dropdown-item" href="{{ '/home/kepengurusan' }}">Kepengurusan</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#">Kontak</a>
+                        <a class="nav-link text-light" href="{{ '/home/kontak' }}">Kontak</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light" href="#">Agenda</a>
+                        <a class="nav-link text-light" href="{{ '/home/agenda' }}">Agenda</a>
                     </li>
                 </ul>
             </div>
