@@ -1,4 +1,4 @@
-@extends('layouts/app')
+@extends('master/template')
 
 @section('konten')
 <h1>Hello, world!</h1>

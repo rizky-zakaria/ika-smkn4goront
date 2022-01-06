@@ -1,4 +1,4 @@
-@extends('layouts/app')
+@extends('master/app')
 
 @section('konten')
 <div class="box" style="margin-left: 12px; margin-right: 5px;">

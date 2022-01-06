@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Controllers\AgendaControllers;
-use App\Http\Controllers\BeritaControllers;
-use App\Http\Controllers\KontakControllers;
-use App\Http\Controllers\PengurusControllers;
-use App\Http\Controllers\ProfilControllers;
+use App\Http\Controllers\WebController;
+use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\BeritaController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BerandaControllers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Routing\RouteGroup;
+use Illuminate\Auth\Events\Verified;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,14 +20,27 @@ use App\Http\Controllers\BerandaControllers;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::resource('/beranda', BeritaControllers::class);
-Route::resource('/admin/profil', ProfilControllers::class);
-Route::resource('/admin/kepengurusan', PengurusControllers::class);
-Route::resource('/admin/agenda', AgendaControllers::class);
-Route::resource('/admin/kontak', KontakControllers::class);
-Route::get('/home/beranda', [BerandaControllers::class, 'index']);
-Route::get('/home/profil', [BerandaControllers::class, 'profil']);
+Route::get('/', [WebController::class, 'index']);
+Route::get('/profil', [WebController::class, 'profil']);
+Route::get('/pengurus', [WebController::class, 'pengurus']);
+Route::get('/kontak', [WebController::class, 'kontak']);
+Route::get('/agenda', [WebController::class, 'agenda']);
+Auth::routes();
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//     return view('dashboard');
+// })->name('dashboard');
+
+
+// Route::middleware(['auth:sanctum', 'verified'])->resource('/admin', 'DashboardController');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::resource('/admin', 'DashboardController');
+    Route::resource('/admin/kepengurusan', 'PengurusController');
+    Route::resource('/admin/alumni', 'AlumniController');
+    Route::resource('/admin/berita', 'BeritaController');
+    Route::resource('/admin/komentar', 'KomentarController');
+    Route::resource('/admin/agenda', 'AgendaController');
+});
