@@ -108,37 +108,37 @@
 
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ '/admin' }}">
+                <a class="nav-link collapsed" href="{{ route('admin.index') }}">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="admin/berita">
+                <a class="nav-link collapsed" href="{{ route('berita.index') }}">
                     <i class="bi bi-newspaper"></i>
                     <span>Berita</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ url('/admin/komentar') }}">
+                <a class="nav-link collapsed" href="{{ route('komentar.index') }}">
                     <i class="bi bi-chat-left-text"></i>
                     <span>Komentar</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ url('/admin/kepengurusan') }}">
+                <a class="nav-link collapsed" href="{{ route('kepengurusan.index') }}">
                     <i class="bi bi-diagram-3"></i>
                     <span>Kepengurusan</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ url('admin/agenda') }}">
+                <a class="nav-link collapsed" href="{{ route('agenda.index') }}">
                     <i class="bi bi-calendar"></i>
                     <span>Agenda</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ url('/admin/alumni') }}">
+                <a class="nav-link collapsed" href="{{ route('alumni.index') }}">
                     <i class="bi bi-people"></i>
                     <span>Alumni</span>
                 </a>

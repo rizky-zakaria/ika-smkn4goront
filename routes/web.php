@@ -1,9 +1,7 @@
 <?php
 
 use App\Http\Controllers\WebController;
-use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\BeritaController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Routing\RouteGroup;
@@ -33,7 +31,6 @@ Auth::routes();
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     return view('dashboard');
 // })->name('dashboard');
-
 
 // Route::middleware(['auth:sanctum', 'verified'])->resource('/admin', 'DashboardController');
 Route::middleware(['auth', 'verified'])->group(function () {
