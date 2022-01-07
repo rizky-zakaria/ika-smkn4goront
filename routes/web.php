@@ -18,9 +18,9 @@ use Illuminate\Auth\Events\Verified;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/welcome', function () {
+    return view('welcome');
+});
 
 Route::get('/', [WebController::class, 'index']);
 Route::get('/profil', [WebController::class, 'profil']);
@@ -35,9 +35,9 @@ Auth::routes();
 // Route::middleware(['auth:sanctum', 'verified'])->resource('/admin', 'DashboardController');
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/admin', 'DashboardController');
-    Route::resource('/admin/kepengurusan', 'PengurusController');
-    Route::resource('/admin/alumni', 'AlumniController');
-    Route::resource('/admin/berita', 'BeritaController');
-    Route::resource('/admin/komentar', 'KomentarController');
-    Route::resource('/admin/agenda', 'AgendaController');
+    Route::resource('home/kepengurusan', 'PengurusController');
+    Route::resource('home/alumni', 'AlumniController');
+    Route::resource('home/berita', 'BeritaController');
+    Route::resource('home/komentar', 'KomentarController');
+    Route::resource('home/agenda', 'AgendaController');
 });

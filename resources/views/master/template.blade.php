@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Tables / Data - NiceAdmin Bootstrap Template</title>
+    <title>IKA-SMKN 4 GORONTALO</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -46,8 +46,8 @@
 
         <div class="d-flex align-items-center justify-content-between">
             <a href="index.html" class="logo d-flex align-items-center">
-                <img src="assets/img/logo.png" alt="">
-                <span class="d-none d-lg-block">IKA -SMKN4 Gorontalo</span>
+                <img src="{{ asset('layout/img/smkn4.png') }}" alt="">
+                <span class="d-none d-lg-block">Ikatan Alumni</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
@@ -70,7 +70,7 @@
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
                             <h6>{{ Auth::user()->name }}</h6>
-                            <span>Web Designer</span>
+                            <span>Administrator</span>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
