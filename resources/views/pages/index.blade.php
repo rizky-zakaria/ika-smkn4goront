@@ -5,17 +5,13 @@
     <div class="row mt-3">
         <div class="col-9">
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                @foreach ($slider as $s)
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="{{ asset('layout/img/smkn4a.png') }}" class="d-block w-100" alt="...">
-                    </div>
                     <div class="carousel-item">
-                        <img src="{{ asset('layout/img/smkn4a.png') }}" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{{ asset('layout/img/smkn4a.png') }}" class="d-block w-100" alt="...">
+                        <img src="{{ asset('img/' . $s->foto) }}" class="d-block w-100" alt="...">
                     </div>
                 </div>
+                @endforeach
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
@@ -32,76 +28,22 @@
         </div>
         <div class="col-3">
             <div class="list-group">
+                @foreach ($side as $item)
                 <a href="#" class="list-group-item list-group-item-action">
                     <div class="row">
                         <div class="col-5">
-                            <img src="{{ asset('layout/img/smkn4a.png') }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
+                            <img src="{{ asset('img/' . $item->foto) }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
                                 height="120px" width="120px">
                         </div>
                         <div class="col-7">
                             <div class="card-body">
-                                <p class="card-title">Card title for this news</p>
-                                <button class="btn btn-primary">read more</button>
+                                <p class="card-title">{{ $item->judul }}</p>
+                                <a href="{{ url('berita/' . $item->id) }}" class="btn btn-primary">read more</a>
                             </div>
                         </div>
                     </div>
                 </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                    <div class="row">
-                        <div class="col-5">
-                            <img src="{{ asset('layout/img/smkn4a.png') }}"
-                                class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" height="120px" width="120px">
-                        </div>
-                        <div class="col-7">
-                            <div class="card-body">
-                                <p class="card-title">Card title for this news</p>
-                                <button class="btn btn-primary">read more</button>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                    <div class="row">
-                        <div class="col-5">
-                            <img src="{{ asset('layout/img/smkn4a.png') }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
-                                height="120px" width="120px">
-                        </div>
-                        <div class="col-7">
-                            <div class="card-body">
-                                <p class="card-title">Card title for this news</p>
-                                <button class="btn btn-primary">read more</button>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                    <div class="row">
-                        <div class="col-5">
-                            <img src="{{ asset('layout/img/smkn4a.png') }}" class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail"
-                                height="120px" width="120px">
-                        </div>
-                        <div class="col-7">
-                            <div class="card-body">
-                                <p class="card-title">Card title for this news</p>
-                                <button class="btn btn-primary">read more</button>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                    <div class="row">
-                        <div class="col-5">
-                            <img src="{{ asset('layout/img/smkn4a.png') }}"
-                                class="attachment-woocommerce_thumbnail size-woocommerce_thumbnail" height="120px" width="120px">
-                        </div>
-                        <div class="col-7">
-                            <div class="card-body">
-                                <p class="card-title">Card title for this news</p>
-                                <button class="btn btn-primary">read more</button>
-                            </div>
-                        </div>
-                    </div>
-                </a>
+                @endforeach
             </div>
         </div>
     </div>
@@ -110,12 +52,9 @@
 <div class="box mt-5">
     <div class="container">
         <div class="row row-cols-3">
-            <img src="{{ asset('layout/img/smkn4a.png') }}" class="img-thumbnail">
-            <img src="{{ asset('layout/img/smkn4a.png') }}" class="img-thumbnail">
-            <img src="{{ asset('layout/img/smkn4a.png') }}" class="img-thumbnail">
-            <img src="{{ asset('layout/img/smkn4a.png') }}" class="img-thumbnail">
-            <img src="{{ asset('layout/img/smkn4a.png') }}" class="img-thumbnail">
-            <img src="{{ asset('layout/img/smkn4a.png') }}" class="img-thumbnail">
+            @foreach ($galeri as $item)
+            <img src="{{ asset('img/' . $item->foto) }}" class="img-thumbnail">
+            @endforeach
         </div>
     </div>
 </div>

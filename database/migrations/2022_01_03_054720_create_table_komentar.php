@@ -20,7 +20,7 @@ class CreateTableKomentar extends Migration
             $table->string('company_name', 255);
             $table->string('subjek', 255);
             $table->text('komentar');
-            $table->timestamps();
+            $table->string('waktu_post', 255);
         });
     }
 

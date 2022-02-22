@@ -40,7 +40,7 @@
 </head>
 
 <body>
-
+    @include('sweetalert::alert')
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
 
@@ -108,37 +108,37 @@
 
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ route('admin.index') }}">
+                <a class="nav-link {{ request()->is('admin') ? 'active' : 'collapsed' }}" href="{{ route('admin.index') }}">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ route('berita.index') }}">
+                <a class="nav-link {{ request()->is('home/berita') ? 'active' : 'collapsed' }}" href="{{ route('berita.index') }}">
                     <i class="bi bi-newspaper"></i>
                     <span>Berita</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ route('komentar.index') }}">
+                <a class="nav-link {{ request()->is('home/komentar') ? 'active' : 'collapsed' }}" href="{{ route('komentar.index') }}">
                     <i class="bi bi-chat-left-text"></i>
                     <span>Komentar</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ route('kepengurusan.index') }}">
+                <a class="nav-link {{ request()->is('home/kepengurusan') ? 'active' : 'collapsed' }}" href="{{ route('kepengurusan.index') }}">
                     <i class="bi bi-diagram-3"></i>
                     <span>Kepengurusan</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ route('agenda.index') }}">
+                <a class="nav-link {{ request()->is('home/agenda') ? 'active' : 'collapsed' }}" href="{{ route('agenda.index') }}">
                     <i class="bi bi-calendar"></i>
                     <span>Agenda</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{ route('alumni.index') }}">
+                <a class="nav-link {{ request()->is('home/alumni') ? 'active' : 'collapsed' }}" href="{{ route('alumni.index') }}">
                     <i class="bi bi-people"></i>
                     <span>Alumni</span>
                 </a>
@@ -150,11 +150,11 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Data Tables</h1>
+            <h1>{{ $modul ?? '' }}</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Admin</a></li>
-                    <li class="breadcrumb-item active">Data</li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Admin</a></li>
+                    <li class="breadcrumb-item active">{{ $modul ?? '' }}</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->

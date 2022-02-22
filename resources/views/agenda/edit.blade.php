@@ -32,6 +32,12 @@
                             </div>
                         </div>
                         <div class="row mb-3">
+                            <label for="inputDate" class="col-sm-2 col-form-label">Tempat</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="tempat_agenda" value="{{ $agenda->tempat_agenda }}">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
                             <label class="col-sm-2 col-form-label">Teruntuk</label>
                             <div class="col-sm-10">
                                 <select class="form-select" aria-label="Default select example" name="teruntuk">
@@ -43,7 +49,7 @@
                                 </select>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="float: right">Simpan</button>s
+                        <button type="submit" class="btn btn-primary" style="float: right">Simpan</button>
                         <a href="{{ route('agenda.index') }}" class="btn btn-danger">Back</a>
                     </form><!-- End General Form Elements -->
 

@@ -14,12 +14,17 @@ class CreateTableAlumni extends Migration
     public function up()
     {
         Schema::create('table_alumni', function (Blueprint $table) {
-            $table->increments('id');
+            $table->string('id', 255)->primary();
             $table->string('nama', 255);
             $table->string('tgl_lahir', 255);
-            $table->string('jk', 1);
+            $table->string('jk', 10);
             $table->string('pekerjaan', 255);
             $table->string('nomor_hp', 255);
+            $table->string('foto', 255);
+            $table->string('agama', 255);
+            $table->string('tempat_lahir', 255);
+            $table->text('alamat');
+            $table->string('thn_angkatan', 255);
         });
     }
 

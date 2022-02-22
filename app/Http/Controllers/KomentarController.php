@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Komentar;
 use Illuminate\Http\Request;
 
 class KomentarController extends Controller
@@ -13,7 +14,9 @@ class KomentarController extends Controller
      */
     public function index()
     {
-        return view('komentar.index');
+        $modul = 'Data Komentar';
+        $data = Komentar::all();
+        return view('komentar.index', compact('modul', 'data'));
     }
 
     /**

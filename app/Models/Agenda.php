@@ -10,6 +10,7 @@ class Agenda extends Model
     use HasFactory;
     protected $table = 'table_agenda';
     protected $fillable = [
-        'id', 'judul', 'teruntuk', 'tgl_agenda', 'isi'
+        'id', 'judul', 'teruntuk', 'tgl_agenda', 'isi', 'waktu_post'
     ];
+    public $timestamps = false;
 }

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alumni;
 use App\Models\Pengurus;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PengurusController extends Controller
 {
@@ -15,7 +18,8 @@ class PengurusController extends Controller
     public function index()
     {
         $data = Pengurus::all();
-        return view('pengurus.index', compact('data'));
+        $modul = 'Data Pengurus';
+        return view('pengurus.index', compact('data', 'modul'));
     }
 
     /**
@@ -25,7 +29,8 @@ class PengurusController extends Controller
      */
     public function create()
     {
-        //
+        $alumni = Alumni::all();
+        return view('pengurus.create', compact('alumni'));
     }
 
     /**
@@ -36,7 +41,15 @@ class PengurusController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        DB::table('table_pengurus')->insert([
+            'id_alumni' => $request->id_alumni,
+            'jabatan' => $request->jabatan,
+            'periode' => $request->periode,
+            'sambutan' => $request->sambutan,
+            'status' => 'Aktif'
+        ]);
+        Alert::success('Berhasil', 'Berhasil Menambahan Data');
+        return redirect(route('kepengurusan.create'));
     }
 
     /**

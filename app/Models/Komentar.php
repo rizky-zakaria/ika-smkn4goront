@@ -11,6 +11,8 @@ class Komentar extends Model
 
     protected $table = 'table_komentar';
     protected $fillable = [
-        'id', 'name', 'email', 'company_name', 'subjek', 'komentar'
+        'id', 'name', 'email', 'company_name', 'subjek', 'komentar', 'waktu_post'
     ];
+
+    public $timestamps = false;
 }

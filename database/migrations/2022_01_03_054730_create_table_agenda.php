@@ -19,7 +19,9 @@ class CreateTableAgenda extends Migration
             $table->string('teruntuk', 255);
             $table->string('tgl_agenda', 255);
             $table->text('isi');
-            $table->timestamps();
+            $table->string('tempat_agenda', 255);
+            $table->string('waktu_post', 255);
+            // $table->timestamps();
         });
     }
 

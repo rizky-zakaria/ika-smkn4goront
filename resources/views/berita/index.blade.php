@@ -1,76 +1,96 @@
 @extends('master/template')
 
 @section('konten')
-<section class="section dashboard">
+<section class="section">
     <div class="row">
+        <div class="col-lg-12">
 
-        <!-- Left side columns -->
-        <div class="col">
-            <div class="row">
+            <div class="card">
+                <div class="container">
+                    <h5 class="card-title">Agenda<a href="{{ route('berita.create') }}" class="btn btn-primary"
+                        style="float: right">Tambah Data</a></h5>
+                </div>
+                <div class="card-body">
+                    <table class="table datatable">
+                        <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Judul</th>
+                                <th scope="col">Gambar</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($data as $key => $item)
+                            <tr>
+                                <th scope="row">{{ ($key+1) }}</th>
+                                <td>{{ $item->judul }}</td>
+                                <td>
+                                    <img src="{{ asset('img/' . $item->foto ) }}" alt="" width="150px">
+                                </td>
+                                <td>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                    <a href="{{ route('berita.show', $item->id) }}" class="btn btn-primary"><i class="bi bi-eye"></i></a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
 
-                <!-- Sales Card -->
-                <div class="col-xxl-2 col-md-4">
-                    <div class="card info-card sales-card">
-                        <div class="card-body">
-                            <h5 class="card-title">Komentar <span>| Tahun Ini</span></h5>
 
-                            <div class="d-flex align-items-center">
-                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                    <i class="bi bi-chat-left-text"></i>
+                    {{--
+
+                        <div class="container">
+                            <div class="row">
+                                @foreach ($data as $item)
+                                <div class="col">
+                                    <div class="card" style="width: 15rem;">
+                                        <img src="{{ asset('img/' . $item->foto ) }}" class="card-img-top">
+                                        <div class="card-body">
+                                            <h5>{{ $item->judul }}</h5>
+                                            <a href="{{ route('berita.show', $item->id) }}" class="text-secondary"><i>Baca Selengkapnya...</i></a>
+                                        </div>
+                                        <div class="card-footer">
+                                            <button type="button" class="btn btn-danger float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                            <a href="{{ route('berita.edit', $item->id) }}" class="btn btn-success float-end"><i class="bi bi-pencil"></i> </a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="ps-3">
-                                    <h6>145</h6>
-                                    <span class="text-success small pt-1 fw-bold">300</span> <span
-                                        class="text-muted small pt-2 ps-1">Total</span>
-                                </div>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Hapus Data</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Apakah Anda Yakin Ingin Menghapus Ini?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    <form action="{{ url('home/berita', $item->id) }}" method="post">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
-
-                    </div>
-                </div><!-- End Sales Card -->
-
-                <!-- Revenue Card -->
-                <div class="col-xxl-2 col-md-4">
-                    <div class="card info-card revenue-card">
-                        <div class="card-body">
-                            <h5 class="card-title">Agenda <span>| Tahun Ini</span></h5>
-
-                            <div class="d-flex align-items-center">
-                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                    <i class="bi bi-calendar"></i>
-                                </div>
-                                <div class="ps-3">
-                                    <h6>5</h6>
-                                    <span class="text-success small pt-1 fw-bold">8</span> <span
-                                        class="text-muted small pt-2 ps-1">Total</span>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- End Revenue Card -->
-
-                <!-- Customers Card -->
-                <div class="col-xxl-4 col-xl-4">
-                    <div class="card info-card customers-card">
-                        <div class="card-body">
-                            <h5 class="card-title">Alumni <span>| Tahun Ini</span></h5>
-                            <div class="d-flex align-items-center">
-                                <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                    <i class="bi bi-people"></i>
-                                </div>
-                                <div class="ps-3">
-                                    <h6>1244</h6>
-                                    <span class="text-success small pt-1 fw-bold">12</span> <span
-                                        class="text-muted small pt-2 ps-1">Total</span>
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+                        --}}
                 </div>
             </div>
+
         </div>
+    </div>
 </section>
 @endsection

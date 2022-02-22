@@ -11,6 +11,9 @@ class Alumni extends Model
 
     protected $table = 'table_alumni';
     protected $fillabel = [
-        'id', 'nama', 'tgl_lahir', 'pekerjaa', 'nomor_hp', 'jk'
+        'id', 'nama', 'tgl_lahir', 'jk', 'pekerjaan', 'nomor_hp', 'foto', 'agama', 'tempat_kerja', 'alamat', 'thn_angkatan'
     ];
+
+    public $timestamps = false;
+    public $incrementing = false;
 }

@@ -6,7 +6,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Agenda<a href="{{ route('alumni.create') }}" class="btn btn-primary"
+                    <h5 class="card-title">Agenda<a href="{{ route('kepengurusan.create') }}" class="btn btn-primary"
                             style="float: right">Tambah Data</a></h5>
                     <table class="table datatable">
                         <thead>
@@ -21,8 +21,8 @@
                             @foreach ($data as $key => $item)
                             <tr>
                                 <th scope="row">{{ ($key+1) }}</th>
-                                <td>{{ $item->nama }}</td>
-                                <td>{{ $item->nomor_hp }}</td>
+                                <td>{{ $item->id_alumni }}</td>
+                                <td>{{ $item->jabatan }}</td>
                                 <td>
                                     <a href="{{ route('alumni.edit', $item->id) }}" class="btn btn-success"><i
                                             class="bi bi-pencil-square"></i></a>

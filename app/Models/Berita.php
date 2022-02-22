@@ -13,4 +13,6 @@ class Berita extends Model
     protected $fillable = [
         'id', 'judul', 'isi', 'foto'
     ];
+
+    public $incrementing = false;
 }

@@ -19,8 +19,8 @@
                                     <i class="bi bi-chat-left-text"></i>
                                 </div>
                                 <div class="ps-3">
-                                    <h6>145</h6>
-                                    <span class="text-success small pt-1 fw-bold">300</span> <span
+                                    <h6>{{ $komentar_tahun }}</h6>
+                                    <span class="text-success small pt-1 fw-bold">{{ $komentar }}</span> <span
                                         class="text-muted small pt-2 ps-1">Total</span>
                                 </div>
                             </div>
@@ -40,8 +40,8 @@
                                     <i class="bi bi-calendar"></i>
                                 </div>
                                 <div class="ps-3">
-                                    <h6>5</h6>
-                                    <span class="text-success small pt-1 fw-bold">8</span> <span
+                                    <h6>{{ $agenda_tahun }}</h6>
+                                    <span class="text-success small pt-1 fw-bold">{{ $agenda }}</span> <span
                                         class="text-muted small pt-2 ps-1">Total</span>
 
                                 </div>
@@ -60,13 +60,10 @@
                                 <i class="bi bi-people"></i>
                             </div>
                             <div class="ps-3">
-                                <h6>1244</h6>
-                                <span class="text-success small pt-1 fw-bold">12</span> <span
-                                    class="text-muted small pt-2 ps-1">Total</span>
-
+                                <h6>{{ $alumni_tahun }}</h6>
+                                <span class="text-success small pt-1 fw-bold">{{ $alumni }}</span> <span class="text-muted small pt-2 ps-1">Total</span>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
